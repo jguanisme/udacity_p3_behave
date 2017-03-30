@@ -36,26 +36,48 @@ cropping layer
 
 Flatten layer
 
+Dropout layer with 0.2
+
 Dense 100 layer
+
+Dropout layer with 0.2
 
 Dense 50 layer
 
+Dropout layer with 0.2
+
 Dense 10 layer
+
+Dropout layer with 0.2
 
 Dense 1 layer
 
 using adam optimizer and mse loss function
+
+using the dropout layer is a great way to avoid overfit,
+
+Dropout is a technique for addressing this problem. The key idea is to randomly drop units (along with their connections) from the neural network during training. This prevents units from co-adapting too much. During training, dropout samples from an exponential number of different “thinned” networks. 
+
+
 
 ##how the model was trained and what the characteristics of the dataset are
 1,model traning is divid into 4 parts
 
 2,first, traning the car is drived at the middle of road smoothly about 3 laps
 
+![2](center_2017_03_05_01_01_12_219.jpg)![3](center_2017_03_05_01_01_12_362.jpg)![4](center_2017_03_05_01_01_12_498.jpg)![5](center_2017_03_05_01_01_13_774.jpg)![6](center_2017_03_05_01_01_40_588.jpg)![7](center_2017_03_05_01_02_00_306.jpg)
+
 2,second, traning the car how to recove from the right edge of road at every way the car failed
+
+![1](center_2017_03_04_23_55_26_757.jpg)![2](center_2017_03_04_23_55_21_896.jpg)![3](center_2017_03_04_23_55_25_915.jpg)![4](center_2017_03_04_23_55_26_151.jpg)![5](center_2017_03_04_23_55_26_384.jpg)![6](center_2017_03_04_23_55_26_535.jpg)
 
 3,third, traning the car how to recove from the left edge of road at every way the car failed
 
-4,four, traning the car how to trun left and right at the each place the car failed
+![1](center_2017_03_05_00_29_38_852.jpg)![2](center_2017_03_05_00_29_35_156.jpg)![3](center_2017_03_05_00_29_37_582.jpg)![4](center_2017_03_05_00_29_37_724.jpg)![5](center_2017_03_05_00_29_38_498.jpg)![6](center_2017_03_05_00_29_38_711.jpg)
+
+4,four, traning the car how to trun left and right at the each place the car failed, the pictures below is traning the car how to trun left when meet the three-way intersection
+
+![2](center_2017_03_05_00_05_34_950.jpg)![3](center_2017_03_05_00_05_36_570.jpg)![4](center_2017_03_05_00_05_36_911.jpg)![5](center_2017_03_05_00_05_37_053.jpg)![6](center_2017_03_05_00_05_37_123.jpg)![7](center_2017_03_05_00_05_37_193.jpg)
 
 then collecting more and more data, doing more and more training
 
