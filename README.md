@@ -59,6 +59,12 @@ using the dropout layer is a great way to avoid overfit,
 Dropout is a technique for addressing this problem. The key idea is to randomly drop units (along with their connections) from the neural network during training. This prevents units from co-adapting too much. During training, dropout samples from an exponential number of different “thinned” networks. 
 
 
+##the accuracy and learning rate of nvidia network 
+nvidia network has a greate accuracy and learning rate, so i choose it. the image shown the accuracy and learning rate is below:
+![1](lrate.png)
+
+when the epochs is set to 3, it will get the best result of the training with effective consideration.
+
 
 ##how the model was trained and what the characteristics of the dataset are
 1,model traning is divid into 4 parts
@@ -82,3 +88,6 @@ Dropout is a technique for addressing this problem. The key idea is to randomly 
 then collecting more and more data, doing more and more training
 
 finally the car will be drived successfuly at least one lap
+
+the distribution of the steering angles in my training data is ploted like below:
+![1](plot.png)

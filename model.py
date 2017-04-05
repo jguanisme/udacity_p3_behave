@@ -10,7 +10,6 @@ with open('./'+st+'/driving_log.csv') as csvfile:
 		lines.append(line)
 
 
-
 from keras.models import Sequential
 from keras.layers import Flatten,Dense,Lambda
 from keras.layers.convolutional import Convolution2D
@@ -61,6 +60,28 @@ def generator(samples, batch_size=32):
                                 center_angle = float(batch_sample[3])
                                 images.append(center_image)
                                 angles.append(center_angle)
+                                images.append(np.fliplr(center_image))
+                                angles.append(-center_angle)
+
+                                adjustment  = 0.16 ## 4 degree (4/25)
+                                
+                                right_filename=batch_sample[1].split('/')[-1]
+                                right_current_path='./'+st+'/IMG/'+filename
+                                right_image = cv2.imread(current_path)
+                                left_filename=batch_sample[2].split('/')[-1]
+                                left_current_path='./'+st+'/IMG/'+filename
+                                left_image = cv2.imread(current_path)
+                                ## add right image
+                                images.append(right_image)
+                                angles.append(center_angle + adjustment  )
+                                images.append(np.fliplr(right_image))
+                                angles.append(-center_angle- adjustment  )
+                                ## add left image
+                                images.append(left_image)
+                                angles.append(center_angle - adjustment  )
+                                images.append(np.fliplr(left_image))
+                                angles.append(-center_angle+ adjustment  )
+
 
                         # trim image to only see section with road
                         X_train = np.array(images)
@@ -70,7 +91,7 @@ def generator(samples, batch_size=32):
             
 
 from sklearn.model_selection import train_test_split
-train_samples, validation_samples = train_test_split(samples, test_size=0.2)
+train_samples, validation_samples = train_test_split(lines, test_size=0.2)
 
 train_generator = generator(train_samples, batch_size=32)
 validation_generator = generator(validation_samples, batch_size=32)
